@@ -4,6 +4,7 @@ package sk.mhecko.hessian.serializer.enhanced;
 import org.junit.jupiter.api.Test;
 import sk.mhecko.hessian.serializer.enhanced.utils.HessianUtils;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -34,5 +35,13 @@ public class Tests {
 
         byte[] data = HessianUtils.serialize(dateTime);
         assertEquals(dateTime, HessianUtils.deserialize(data));
+    }
+
+    @Test
+    public void testBigDecimal() throws Exception {
+        BigDecimal number = new BigDecimal(999);
+
+        byte[] data = HessianUtils.serialize(number);
+        assertEquals(number, HessianUtils.deserialize(data));
     }
 }

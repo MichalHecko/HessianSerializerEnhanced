@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: "maven"
+
+group = "sk.mhecko.hessian"
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	hessianVersion = '4.0.60'
+}
+
+dependencies {
+	compileOnly "com.caucho:hessian:${hessianVersion}"
+
+	testCompile "com.caucho:hessian:${hessianVersion}"
+
+	// JUnit
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+repositories {
+	mavenLocal()
+}

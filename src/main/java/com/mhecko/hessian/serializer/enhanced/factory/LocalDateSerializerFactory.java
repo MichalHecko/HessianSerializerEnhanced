@@ -1,10 +1,10 @@
-package sk.mhecko.hessian.serializer.enhanced.factory;
+package com.mhecko.hessian.serializer.enhanced.factory;
 
 import com.caucho.hessian.io.AbstractSerializerFactory;
 import com.caucho.hessian.io.Deserializer;
 import com.caucho.hessian.io.Serializer;
-import sk.mhecko.hessian.serializer.enhanced.deserializer.LocalDateDeserializer;
-import sk.mhecko.hessian.serializer.enhanced.serializer.LocalDateSerializer;
+import com.mhecko.hessian.serializer.enhanced.deserializer.LocalDateDeserializer;
+import com.mhecko.hessian.serializer.enhanced.serializer.LocalDateSerializer;
 
 import java.time.LocalDate;
 

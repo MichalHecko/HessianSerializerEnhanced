@@ -1,13 +1,13 @@
-package sk.mhecko.hessian.serializer.enhanced;
+package com.mhecko.hessian.serializer.enhanced;
 
 import com.caucho.hessian.io.AbstractSerializerFactory;
 import com.caucho.hessian.io.Deserializer;
 import com.caucho.hessian.io.HessianProtocolException;
 import com.caucho.hessian.io.Serializer;
-import sk.mhecko.hessian.serializer.enhanced.factory.BigDecimalSerializerFactory;
-import sk.mhecko.hessian.serializer.enhanced.factory.LocalDateSerializerFactory;
-import sk.mhecko.hessian.serializer.enhanced.factory.LocalDateTimeSerializerFactory;
-import sk.mhecko.hessian.serializer.enhanced.factory.LocalTimeSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.factory.BigDecimalSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.factory.LocalDateSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.factory.LocalDateTimeSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.factory.LocalTimeSerializerFactory;
 
 public class AllSerializerFactory extends AbstractSerializerFactory {
     private LocalDateSerializerFactory localDateSerializerFactory;

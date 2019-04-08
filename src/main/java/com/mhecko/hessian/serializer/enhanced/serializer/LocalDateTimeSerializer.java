@@ -1,4 +1,4 @@
-package sk.mhecko.hessian.serializer.enhanced.serializer;
+package com.mhecko.hessian.serializer.enhanced.serializer;
 
 import com.caucho.hessian.io.StringValueSerializer;
 

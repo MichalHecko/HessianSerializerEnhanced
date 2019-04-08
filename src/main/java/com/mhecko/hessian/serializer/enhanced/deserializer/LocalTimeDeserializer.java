@@ -1,4 +1,4 @@
-package sk.mhecko.hessian.serializer.enhanced.deserializer;
+package com.mhecko.hessian.serializer.enhanced.deserializer;
 
 import com.caucho.hessian.io.AbstractStringValueDeserializer;
 

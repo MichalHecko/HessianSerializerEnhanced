@@ -1,9 +1,9 @@
-package sk.mhecko.hessian.serializer.enhanced.utils;
+package com.mhecko.hessian.serializer.enhanced.utils;
 
 import com.caucho.hessian.io.Hessian2Input;
 import com.caucho.hessian.io.Hessian2Output;
 import com.caucho.hessian.io.SerializerFactory;
-import sk.mhecko.hessian.serializer.enhanced.AllSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.AllSerializerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

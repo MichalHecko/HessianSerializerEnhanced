@@ -1,8 +1,8 @@
-package sk.mhecko.hessian.serializer.enhanced;
+package com.mhecko.hessian.serializer.enhanced;
 
 
 import org.junit.jupiter.api.Test;
-import sk.mhecko.hessian.serializer.enhanced.utils.HessianUtils;
+import com.mhecko.hessian.serializer.enhanced.utils.HessianUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

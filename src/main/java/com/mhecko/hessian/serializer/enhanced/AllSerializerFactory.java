@@ -4,22 +4,24 @@ import com.caucho.hessian.io.AbstractSerializerFactory;
 import com.caucho.hessian.io.Deserializer;
 import com.caucho.hessian.io.HessianProtocolException;
 import com.caucho.hessian.io.Serializer;
-import com.mhecko.hessian.serializer.enhanced.factory.BigDecimalSerializerFactory;
-import com.mhecko.hessian.serializer.enhanced.factory.LocalDateSerializerFactory;
-import com.mhecko.hessian.serializer.enhanced.factory.LocalDateTimeSerializerFactory;
-import com.mhecko.hessian.serializer.enhanced.factory.LocalTimeSerializerFactory;
+import com.mhecko.hessian.serializer.enhanced.factory.*;
 
 public class AllSerializerFactory extends AbstractSerializerFactory {
-    private LocalDateSerializerFactory localDateSerializerFactory;
-    private LocalDateTimeSerializerFactory localDateTimeSerializerFactory;
-    private LocalTimeSerializerFactory localTimeSerializerFactory;
-    private BigDecimalSerializerFactory bigDecimalSerializerFactory;
+
+    private final LocalDateSerializerFactory localDateSerializerFactory;
+    private final LocalDateTimeSerializerFactory localDateTimeSerializerFactory;
+    private final LocalTimeSerializerFactory localTimeSerializerFactory;
+    private final BigDecimalSerializerFactory bigDecimalSerializerFactory;
+    private final ZonedDateTimeSerializerFactory zonedDateTimeSerializerFactory;
+    private final LocaleSerializerFactory localeSerializerFactory;
 
     public AllSerializerFactory() {
         this.localDateSerializerFactory = new LocalDateSerializerFactory();
         this.localDateTimeSerializerFactory = new LocalDateTimeSerializerFactory();
         this.localTimeSerializerFactory = new LocalTimeSerializerFactory();
         this.bigDecimalSerializerFactory = new BigDecimalSerializerFactory();
+        this.zonedDateTimeSerializerFactory = new ZonedDateTimeSerializerFactory();
+        this.localeSerializerFactory = new LocaleSerializerFactory();
     }
 
     @Override
@@ -28,8 +30,9 @@ public class AllSerializerFactory extends AbstractSerializerFactory {
                 this.localDateSerializerFactory,
                 this.localDateTimeSerializerFactory,
                 this.localTimeSerializerFactory,
-                this.bigDecimalSerializerFactory
-
+                this.bigDecimalSerializerFactory,
+                this.zonedDateTimeSerializerFactory,
+                this.localeSerializerFactory
         );
     }
 
@@ -39,11 +42,13 @@ public class AllSerializerFactory extends AbstractSerializerFactory {
                 this.localDateSerializerFactory,
                 this.localDateTimeSerializerFactory,
                 this.localTimeSerializerFactory,
-                this.bigDecimalSerializerFactory
+                this.bigDecimalSerializerFactory,
+                this.zonedDateTimeSerializerFactory,
+                this.localeSerializerFactory
         );
     }
 
-    private Serializer findFirstSerializer(Class cl, AbstractSerializerFactory... serializerFactories) throws HessianProtocolException {
+    private Serializer findFirstSerializer(Class<?> cl, AbstractSerializerFactory... serializerFactories) throws HessianProtocolException {
         Serializer serializer = null;
         for (AbstractSerializerFactory factory : serializerFactories) {
             serializer = factory.getSerializer(cl);
@@ -55,7 +60,7 @@ public class AllSerializerFactory extends AbstractSerializerFactory {
         return serializer;
     }
 
-    private Deserializer findFirstDeserializer(Class cl, AbstractSerializerFactory... serializerFactories) throws HessianProtocolException {
+    private Deserializer findFirstDeserializer(Class<?> cl, AbstractSerializerFactory... serializerFactories) throws HessianProtocolException {
         Deserializer deserializer = null;
         for (AbstractSerializerFactory factory : serializerFactories) {
             deserializer = factory.getDeserializer(cl);

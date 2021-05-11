@@ -7,6 +7,8 @@ Supported Java types:
 - LocalDate
 - LocalTime
 - LocalDateTime
+- ZonedDateTime
+- Locale
 
 Other types will be added on demand.
 

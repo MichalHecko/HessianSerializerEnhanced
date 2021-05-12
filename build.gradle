@@ -4,7 +4,6 @@ apply plugin: "maven"
 group = "com.mhecko.hessian"
 version = '0.0.2'
 
-sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -12,6 +11,7 @@ repositories {
 
 ext {
 	hessianVersion = '4.0.60'
+	javaVersion = '1.8'
 }
 
 dependencies {
@@ -26,6 +26,10 @@ dependencies {
 	}
 }
 
+compileJava {
+	sourceCompatibility = javaVersion
+	targetCompatibility = javaVersion
+}
 test {
 	useJUnitPlatform()
 }

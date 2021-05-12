@@ -8,6 +8,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -43,5 +45,21 @@ public class Tests {
 
         byte[] data = HessianUtils.serialize(number);
         assertEquals(number, HessianUtils.deserialize(data));
+    }
+
+    @Test
+    public void testZonedDateTime() throws Exception {
+        final ZonedDateTime zonedDateTime = ZonedDateTime.now();
+
+        byte[] data = HessianUtils.serialize(zonedDateTime);
+        assertEquals(zonedDateTime, HessianUtils.deserialize(data));
+    }
+
+    @Test
+    public void testLocale() throws Exception {
+        final Locale locale = Locale.forLanguageTag("en");
+
+        byte[] data = HessianUtils.serialize(locale);
+        assertEquals(locale.getLanguage(), HessianUtils.deserialize(data));
     }
 }
